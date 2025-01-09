@@ -150,7 +150,7 @@ class HIPIE_IMG(nn.Module):
         # Language (text encoder and tokenizer)
         self.parallel_det = cfg.MODEL.PARALLEL_DET
         # Here we use BERT as the text encoder in a hard-code way
-        self.tokenizer = AutoTokenizer.from_pretrained("projects/HIPIE/bert-base-uncased")
+        self.tokenizer = AutoTokenizer.from_pretrained("google-bert/bert-base-uncased")
         if self.parallel_det:
             self.text_encoder = BertEncoder(cfg)
         else:
