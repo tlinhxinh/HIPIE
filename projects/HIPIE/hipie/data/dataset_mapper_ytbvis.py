@@ -167,9 +167,9 @@ class YTVISDatasetMapper:
                     raise ValueError("Unsupported dataset_name: %s"%dataset_name)
             use_roberta = cfg.MODEL.LANGUAGE_BACKBONE.TOKENIZER_TYPE == "roberta-base" and cfg.MODEL.LANGUAGE_BACKBONE.MODEL_TYPE == "roberta-base"
             if use_roberta:
-                self.tokenizer = RobertaTokenizerFast.from_pretrained('projects/HIPIE/roberta-base')
+                self.tokenizer = RobertaTokenizerFast.from_pretrained('HIPIE/projects/HIPIE/roberta-base')
             else:
-                self.tokenizer = AutoTokenizer.from_pretrained('projects/HIPIE/bert-base-uncased') # align with GLIP
+                self.tokenizer = AutoTokenizer.from_pretrained('HIPIE/projects/HIPIE/bert-base-uncased') # align with GLIP
             self.max_query_len = cfg.MODEL.LANGUAGE_BACKBONE.MAX_QUERY_LEN
             self.prepare = ConvertCocoPolysToMask(
                 return_tokens=True,
