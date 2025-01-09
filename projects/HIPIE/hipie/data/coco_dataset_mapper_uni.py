@@ -272,9 +272,9 @@ class DetrDatasetMapperUni:
             self.is_thing["coco_panoptic"] = {k:True for k in self.ind_to_class_dict["obj365v2"]}
             use_roberta = cfg.MODEL.LANGUAGE_BACKBONE.TOKENIZER_TYPE == "roberta-base" and cfg.MODEL.LANGUAGE_BACKBONE.MODEL_TYPE == "roberta-base"
             if use_roberta:
-                self.tokenizer = RobertaTokenizerFast.from_pretrained('projects/HIPIE/roberta-base')
+                self.tokenizer = RobertaTokenizerFast.from_pretrained('HIPIE/projects/HIPIE/roberta-base')
             else:
-                self.tokenizer = AutoTokenizer.from_pretrained('projects/HIPIE/bert-base-uncased') # align with GLIP
+                self.tokenizer = AutoTokenizer.from_pretrained('HIPIE/projects/HIPIE/bert-base-uncased') # align with GLIP
             for dataset_name in SEGM_DATASETS:
                 self.register_segm_dataset(dataset_name)
             for cat in SEG_IN_W_CATEGORIES:
