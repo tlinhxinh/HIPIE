@@ -14,7 +14,7 @@ class BertEncoder(nn.Module):
         self.bert_name = cfg.MODEL.LANGUAGE_BACKBONE.MODEL_TYPE
         self.max_seq_len = cfg.MODEL.LANGUAGE_BACKBONE.MAX_QUERY_LEN
         if self.bert_name == "bert-base-uncased":
-            config = BertConfig.from_pretrained("projects/HIPIE/%s"%self.bert_name)
+            config = BertConfig.from_pretrained("HIPIE/projects/HIPIE/%s"%self.bert_name)
             config.gradient_checkpointing = self.cfg.MODEL.LANGUAGE_BACKBONE.USE_CHECKPOINT
             self.model = BertModel.from_pretrained("projects/HIPIE/%s" % self.bert_name, add_pooling_layer=False, config=config)
             self.language_dim = 768
