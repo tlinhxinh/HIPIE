@@ -287,7 +287,7 @@ class HIPIEPredictor:
         self.input_format = cfg.INPUT.FORMAT
         assert self.input_format in ["RGB", "BGR"], self.input_format
         # for HIPIE
-        self.tokenizer = AutoTokenizer.from_pretrained('projects/HIPIE/bert-base-uncased')
+        self.tokenizer = AutoTokenizer.from_pretrained('HIPIE/projects/HIPIE/bert-base-uncased')
         self.prompt_test_dict = {}
         self.positive_map_label_to_token_dict = {}
         self.is_thing = {}
