@@ -323,6 +323,7 @@ class PartSegmDemo:
         predictions, visualized_output = self.demo.run_on_image(img,
                     0.5,
                 'grounding', expressions=reference_string,**self.arg_coco)
+        instances_box = predictions['instances']
         instance_mask = predictions['instances'].pred_masks.cpu()
         out_dict = dict(
             instance_mask=instance_mask
@@ -351,4 +352,5 @@ class PartSegmDemo:
         else:
            final_mask=instance_mask
         out_dict.update(final_mask=final_mask)
+        out_dict['instances'] = instances_box
         return out_dict
